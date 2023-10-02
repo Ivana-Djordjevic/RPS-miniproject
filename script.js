@@ -45,9 +45,12 @@ function playGame() {
             losses++;
     }
 
-    window.alert('Stats: \n Wins: ' 
-                    + wins + '\nLosses: ' 
-                    + losses + '\nTies: ' + ties);
+    window.alert(`
+        Stats: 
+            Wins: ${wins}
+            Losses: ${losses}
+            Ties: ${ties}
+        `); 
 
      if (window.confirm("Play Again!") === true) {
         playGame();
