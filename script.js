@@ -1,5 +1,4 @@
 // promt user 
-
 //alert with computer choise
 //alert winner or loser message
 //alert with stats
@@ -12,45 +11,46 @@ const options =  ['R', 'P', 'S']
 
 function playGame() {
 
-    let userChoice = window.prompt("Enter R, P, or S:")
-    
-    userChoice = userChoice.toUpperCase().trim()
+    let userChoice = window.prompt("Enter R, P, or S:").toUpperCase().trim();
     console.log(userChoice)
-    if (userChoice === null || 
-        userChoice != 'R' ||
-        userChoice !== 'P' ||
-        userChoice !== 's') 
-        {
-        window.alert("please enter a valid value: R, P or S")
-        playGame()
+
+    if (!userChoice) {
+        return
     }
 
-    let x = Math.floor((Math.random() * 3))
-    let computerChoice = options[x]
+    while (
+        !options.includes(userChoice)
+    ) {
+        alert('please enter a valid value');
+        playGame();
+    }
 
-    window.alert("the computer chose " + computerChoice)
+    let x = Math.floor((Math.random() * 3));
+    let computerChoice = options[x];
+
+    window.alert("the computer chose " + computerChoice);
     
     if (userChoice === computerChoice) {
-        alert('Tie between you and Computer')
-        ties++
+        alert('Tie between you and Computer');
+        ties++;
 
     } else if ( (userChoice === 'R' && computerChoice === 'S') ||
                 (userChoice === 'P' && computerChoice === 'R') ||
                 (userChoice === 'S' && computerChoice === 'P')
     ) {
-            window.alert("you won")
-            wins++
+            window.alert("you won");
+            wins++;
     } else {
-            window.alert("you lost")
-            losses++
+            window.alert("you lost");
+            losses++;
     }
 
     window.alert('Stats: \n Wins: ' 
                     + wins + '\nLosses: ' 
-                    + losses + '\nTies: ' + ties)
+                    + losses + '\nTies: ' + ties);
 
      if (window.confirm("Play Again!") === true) {
-        playGame()
+        playGame();
     } else {
         text = "Thank you for playing";
     }
