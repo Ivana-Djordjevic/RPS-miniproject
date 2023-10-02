@@ -55,7 +55,7 @@ function playGame() {
      if (window.confirm("Play Again!") === true) {
         playGame();
     } else {
-        text = "Thank you for playing";
+       alert("Thank you for playing");
     }
 
 }
